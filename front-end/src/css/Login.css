@@ -1,0 +1,102 @@
+.login-container {
+	width:400px;
+  /* height: 400px; */
+  padding: 10px 50px 40px 50px;
+  background-color: #fbfbfb;
+  color: #707070;
+  -webkit-box-shadow: 0px 10px 10px 0px rgba(196,196,196,0.75);
+  -moz-box-shadow: 0px 10px 10px 0px rgba(196,196,196,0.75);
+  box-shadow: 0px 10px 10px 0px rgba(196,196,196,0.75);
+}
+.login-container h1 {
+  color: #cc3c3a; letter-spacing:1px; text-align:center;
+  font-family: system-ui;
+  font-size: 2rem;
+} 
+.center-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.center-text > span {
+  font-size: 0.97rem;
+  color: #878787;
+}
+.login-form {
+  display: flex;
+  flex-direction: column;
+  /* height: 300px; */
+  margin-top: 10px;
+}
+.login-form span {
+  margin-top: 1rem;
+  font-size: .75rem;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+}
+.login-input {
+  width: 96.5%;
+  height: 30px;
+  background-color: #fff;
+  box-shadow: none;
+  border: 1px solid #e3e3e3;
+  font-size: .78rem;
+  color: #565656;
+  transition: all .3s linear;
+  padding-left: 10px;
+}
+.login-input:focus {
+  color: #495057;
+  background-color: #fff;
+  border-color: #e3e3e3;
+  outline: 0;
+  box-shadow: 0 0 0 0.05rem rgba(112, 112, 112, 0.25);
+}
+.separator {
+  width: 100%;
+  height: 1px;
+  margin-top: 1rem;
+  background-color: #cacaca;
+}
+.login-btn {
+  margin-top: 1rem;
+  width: 100%;
+  height: 35px;
+  background-color: rgba(251,64,75,255);
+  color: #fbfbfb;
+  border: 1px solid #fb404b;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+.login-btn:hover {
+  background-color: #fa1825;
+  border: 1px solid #fa1825;
+}
+
+@media screen and (max-width: 1023px) {
+  .login-container {
+    width: 80vw;
+  }
+  .login-container h1 {
+    font-size: 3.5rem;
+  }
+  .center-text > span {
+    font-size: 1.5rem;
+  }
+  .login-form span {
+    font-size: 1.1rem;
+  }
+  .login-input {
+    font-size: 1.3rem;
+    height: 50px;
+    width: 98%;
+  }
+  .separator {
+    margin: 1.5rem 0px;
+  }
+  .login-btn {
+    margin-top: 0rem;
+    font-size: 1.5rem;
+    height: 60px;
+  }
+}
