@@ -176,3 +176,16 @@ main {
   background-color: rgba(255, 255, 255, .1);
 }
 /* CONVERSOR */
+
+.navBtn:hover { background-color: #ff7c7c; }
+.formInput:focus {
+  color: #495057;
+  background-color: #fff;
+  border-color: #e3e3e3;
+  outline: 0;
+  box-shadow: 0 0 0 0.05rem rgba(112, 112, 112, 0.25);
+}
+.loginBtn:hover {
+  background-color: #fa1825;
+  border: 1px solid #fa1825;
+}

@@ -3,7 +3,7 @@ import React, { useContext } from "react";
 import AppContext from "../context/AppContext";
 import Excel from "exceljs";
 import * as FileSaver from 'file-saver';
-import '../css/Login.css'
+// import '../css/Login.css'
 // import { funcClassifyFolhaCDL } from "../helpers/Funcoes";
 
 function Classificador() {
