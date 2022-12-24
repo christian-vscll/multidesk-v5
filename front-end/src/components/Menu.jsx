@@ -1,93 +1,264 @@
-import React from "react";
+import React, { useContext } from "react";
 // import { useNavigate } from "react-router-dom";
-import iconCasa from '../icons/casa.png';
-import '../App.css';
+import AppContext from "../context/AppContext";
+import iconArrow from "../icons/arrow-down.png";
+import "../App.css";
+import { useNavigate } from "react-router-dom";
 
 export default function Menu() {
-	// const navigate = useNavigate();
-	return (
-		<div style={sidebar}>
-			<h1 style={h1}>Multidesk</h1>
-			<div style={separator}/>
-			<nav style={navPanel}>
-				<ul style={ul} className='navBtn' onClick={ (e) => alert('ponto 1') }>
-					<img src={iconCasa} alt="" style={img}/>
-					<span style={span}>Home</span>
-				</ul>
-				<ul style={ul} className='navBtn' onClick={ (e) => alert('ponto 2') }>
-					<img src={iconCasa} alt="" style={img}/>
-					<span style={span}>Testando uma coisa maior ainda</span>
-				</ul>
-			</nav>
-			{/* <button className="header-btn-conversor" onClick={ () => navigate('/home') } >
-				Home
-			</button> */}
-		</div>
-	);
-};
+  const { groupCollapse, setGroupCollapse } = useContext(AppContext);
 
-let sidebar;
-let h1;
-let separator;
-let navPanel;
-let ul;
-let img;
-let span;
+  const navigate = useNavigate();
 
-switch (window.innerWidth) {
-  case window.innerWidth < 1024:
-    break;
-  default:
-    sidebar = {
-      /* position: absolute; */
-      /* top: 0px; left: 0px; */
-      width: "17vw",
-      height: "100vh",
-      backgroundColor: "#ca3b3a",
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-      transition: "all .15s linear",
-    }
-    h1 = {
-      color: "#fffcfc",
-      letterSpacing: "1px",
-      textAlign: "center",
-      fontFamily: "system-ui",
-      fontSize: "2rem",
-      margin: "0.8rem auto 0.2rem auto",
-    } 
-    separator = {
-      width: "90%",
-      height: "1px",
-      marginBottom: "1rem",
-      backgroundColor: "#ff9292",
-    }
-    navPanel = {
-      width: "90%",
-      display: "flex",
-      flexDirection: "column",
-    }
-    ul = {
-      display: "flex",
-      flexDirection: "row",
-      alignItems: "center",
-      margin: "2px 0px",
-      height: "3rem",
-      transition: "all .15s linear",
-      cursor: "pointer",
-    }
-    img = {
-      width: "1rem",
-      marginRight: "-10px",
-      position: "relative",
-      left: "-1.5rem",
-    }
-    span = {
-      fontSize: "0.7rem",
-      textTransform: "uppercase",
-      fontWeight: "700",
-      color: "#fffcfc",
-    }
-    break;
+  return (
+    <div className="menu-container">
+      <div
+        className="menu-titleContainer"
+        style={{ cursor: "pointer" }}
+        onClick={() =>
+          setGroupCollapse({
+            groupTitle: !groupCollapse.groupTitle,
+            groupCadastro: true,
+            groupEcac: true,
+            groupSefaz: true,
+            groupOutros: true,
+            groupOp: true,
+          })
+        }
+      >
+        <h1 className="menu-title">Multidesk</h1>
+        <div className="menu-separator" />
+        <img
+          src={iconArrow}
+          alt=""
+          className="menu-navIconTitle"
+          style={
+            groupCollapse.groupTitle === true
+              ? { transform: "rotate(0deg)" }
+              : { transform: "rotate(180deg)" }
+          }
+        />
+      </div>
+      {groupCollapse.groupTitle === false && (
+        <nav className="menu-panel">
+          <ul
+            className="menu-navGroup"
+            onClick={() =>
+              setGroupCollapse({
+                groupTitle: false,
+                groupCadastro: !groupCollapse.groupCadastro,
+                groupEcac: true,
+                groupSefaz: true,
+                groupOutros: true,
+                groupOp: true,
+              })
+            }
+          >
+            <span className="menu-navGroupLabel">Consultas de Cadastro</span>
+            <img
+              src={iconArrow}
+              alt=""
+              className="menu-navIcons"
+              style={
+                groupCollapse.groupCadastro === true
+                  ? { transform: "rotate(0deg)" }
+                  : { transform: "rotate(180deg)" }
+              }
+            />
+          </ul>
+          {groupCollapse.groupCadastro === false && (
+            <>
+              <ul
+                className="menu-navBtn"
+                onClick={() => navigate("/consult-cnpj")}
+              >
+                <span className="menu-navLabel">CNPJ</span>
+                {/* https://infosimples.com/consultas/receita-federal-cnpj/ */}
+              </ul>
+              <ul className="menu-navBtn" onClick={() => alert("ponto 2")}>
+                <span className="menu-navLabel">Inscrição Estadual</span>
+                {/* https://api.infosimples.com/consultas/docs/sintegra/rj */}
+              </ul>
+            </>
+          )}
+          <ul
+            className="menu-navGroup"
+            onClick={() =>
+              setGroupCollapse({
+                groupTitle: false,
+                groupCadastro: true,
+                groupEcac: !groupCollapse.groupEcac,
+                groupSefaz: true,
+                groupOutros: true,
+                groupOp: true,
+              })
+            }
+          >
+            <span className="menu-navGroupLabel">Consultas ECAC</span>
+            <img
+              src={iconArrow}
+              alt=""
+              className="menu-navIcons"
+              style={
+                groupCollapse.groupEcac === true
+                  ? { transform: "rotate(0deg)" }
+                  : { transform: "rotate(180deg)" }
+              }
+            />
+          </ul>
+          {groupCollapse.groupEcac === false && (
+            <>
+              <ul
+                className="menu-navBtn"
+                onClick={(e) => alert("Está por vir")}
+              >
+                <span className="menu-navLabel">Caixa Postal / ECAC</span>
+              </ul>
+              <ul
+                className="menu-navBtn"
+                onClick={(e) => alert("Está por vir")}
+              >
+                <span className="menu-navLabel">PGFN / CND Federal</span>
+              </ul>
+              <ul
+                className="menu-navBtn"
+                onClick={(e) => navigate("/pgto-ecac")}
+              >
+                <span className="menu-navLabel">
+                  Comprovantes de Pagamento / ECAC
+                </span>
+              </ul>
+              <ul
+                className="menu-navBtn"
+                onClick={(e) => alert("Está por vir")}
+              >
+                <span className="menu-navLabel">Situação Fiscal / ECAC</span>
+                {/* https://api.infosimples.com/api/v2/consultas/ecac/situacao-fiscal */}
+              </ul>
+            </>
+          )}
+          <ul
+            className="menu-navGroup"
+            onClick={() =>
+              setGroupCollapse({
+                groupTitle: false,
+                groupCadastro: true,
+                groupEcac: true,
+                groupSefaz: !groupCollapse.groupSefaz,
+                groupOutros: true,
+                groupOp: true,
+              })
+            }
+          >
+            <span className="menu-navGroupLabel">Consultas Sefaz</span>
+            <img
+              src={iconArrow}
+              alt=""
+              className="menu-navIcons"
+              style={
+                groupCollapse.groupSefaz === true
+                  ? { transform: "rotate(0deg)" }
+                  : { transform: "rotate(180deg)" }
+              }
+            />
+          </ul>
+          {groupCollapse.groupSefaz === false && (
+            <>
+              <ul className="menu-navBtn" onClick={() => alert("Está por vir")}>
+                <span className="menu-navLabel">
+                  Certidão Negativa de Débitos / CNPJ
+                </span>
+              </ul>
+              <ul className="menu-navBtn" onClick={() => alert("Está por vir")}>
+                <span className="menu-navLabel">
+                  Certidão Negativa de Débitos / Certificado
+                </span>
+              </ul>
+              <ul className="menu-navBtn" onClick={() => alert("Está por vir")}>
+                <span className="menu-navLabel">Caixa Postal / DEC</span>
+              </ul>
+              <ul className="menu-navBtn" onClick={() => alert("Está por vir")}>
+                <span className="menu-navLabel">Dívida Ativa</span>
+              </ul>
+            </>
+          )}
+          <ul
+            className="menu-navGroup"
+            onClick={() =>
+              setGroupCollapse({
+                groupTitle: false,
+                groupCadastro: true,
+                groupEcac: true,
+                groupSefaz: true,
+                groupOutros: !groupCollapse.groupOutros,
+                groupOp: true,
+              })
+            }
+          >
+            <span className="menu-navGroupLabel">Outras consultas</span>
+            <img
+              src={iconArrow}
+              alt=""
+              className="menu-navIcons"
+              style={
+                groupCollapse.groupOutros === true
+                  ? { transform: "rotate(0deg)" }
+                  : { transform: "rotate(180deg)" }
+              }
+            />
+          </ul>
+          {groupCollapse.groupOutros === false && (
+            <>
+              <ul className="menu-navBtn" onClick={() => alert("Está por vir")}>
+                <span className="menu-navLabel">
+                  Acompanhamento de Protocolo / REDESIM
+                </span>
+              </ul>
+              <ul className="menu-navBtn" onClick={() => alert("Está por vir")}>
+                <span className="menu-navLabel">
+                  Regularidade do Empregador / FGTS
+                </span>
+              </ul>
+            </>
+          )}
+          <ul
+            className="menu-navGroup"
+            onClick={() =>
+              setGroupCollapse({
+                groupTitle: false,
+                groupCadastro: true,
+                groupEcac: true,
+                groupSefaz: true,
+                groupOutros: true,
+                groupOp: !groupCollapse.groupOp,
+              })
+            }
+          >
+            <span className="menu-navGroupLabel">Operações</span>
+            <img
+              src={iconArrow}
+              alt=""
+              className="menu-navIcons"
+              style={
+                groupCollapse.groupOp === true
+                  ? { transform: "rotate(0deg)" }
+                  : { transform: "rotate(180deg)" }
+              }
+            />
+          </ul>
+          {groupCollapse.groupOp === false && (
+            <>
+              <ul className="menu-navBtn" onClick={() => alert("Está por vir")}>
+                <span className="menu-navLabel">Conversor OFX</span>
+              </ul>
+              <ul className="menu-navBtn" onClick={() => alert("Está por vir")}>
+                <span className="menu-navLabel">Classificador Automático</span>
+              </ul>
+            </>
+          )}
+          <div className="menu-spacer" />
+        </nav>
+      )}
+    </div>
+  );
 }
