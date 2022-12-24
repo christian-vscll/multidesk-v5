@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import AppContext from "../context/AppContext";
 import Menu from "../components/Menu";
 import { obj } from "../mockConsultaCNPJ";
@@ -12,7 +12,12 @@ export default function ConsultCnpj() {
     setDataConsultCnpj,
     groupConsultCnpj,
     setGroupConsultCnpj,
+    setGroupCollapse,
+    groupCollapse,
   } = useContext(AppContext);
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useEffect(() => setGroupCollapse({ ...groupCollapse, groupTitle: true }), []);
 
   const dataContent = () =>
     dataConsultCnpj !== undefined &&

@@ -6,16 +6,26 @@ import docIcon from "../icons/doc.png";
 import "../App.css";
 
 export default function PgtoEcac() {
-  const { searchParams, setSearchParams, dataPgtoEcac, setDataPgtoEcac } =
-    useContext(AppContext);
+  const {
+    searchParams,
+    setSearchParams,
+    dataPgtoEcac,
+    setDataPgtoEcac,
+    groupCollapse,
+    setGroupCollapse,
+  } = useContext(AppContext);
 
-  useEffect(() => {setSearchParams({
-    ...searchParams,
-    cnpj: "",
-    dataInicial: "2022-01-01",
-    dataFinal: "",
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  })}, []);
+  useEffect(() => {
+    setSearchParams({
+      ...searchParams,
+      cnpj: "",
+      dataInicial: "2022-01-01",
+      dataFinal: "",
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    });
+    setGroupCollapse({ ...groupCollapse, groupTitle: true });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const dataTable = () => (
     <table className="pgtoEcac-dataTable">
