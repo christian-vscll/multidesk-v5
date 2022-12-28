@@ -113,12 +113,14 @@ export default function Menu() {
                 onClick={(e) => alert("Está por vir")}
               >
                 <span className="menu-navLabel">Caixa Postal / ECAC</span>
+                {/* https://api.infosimples.com/consultas/docs/ecac/caixa-postal */}
               </ul>
               <ul
                 className="menu-navBtn"
                 onClick={(e) => alert("Está por vir")}
               >
                 <span className="menu-navLabel">PGFN / CND Federal</span>
+                {/* https://api.infosimples.com/consultas/docs/receita-federal/pgfn */}
               </ul>
               <ul
                 className="menu-navBtn"
@@ -126,11 +128,12 @@ export default function Menu() {
               >
                 <span className="menu-navLabel">
                   Comprovantes de Pagamento / ECAC
+                  {/* https://api.infosimples.com/consultas/docs/ecac/comprovante-pagamento */}
                 </span>
               </ul>
               <ul
                 className="menu-navBtn"
-                onClick={(e) => alert("Está por vir")}
+                onClick={(e) => navigate("/situa-fiscal")}
               >
                 <span className="menu-navLabel">Situação Fiscal / ECAC</span>
                 {/* https://api.infosimples.com/api/v2/consultas/ecac/situacao-fiscal */}
@@ -167,18 +170,22 @@ export default function Menu() {
               <ul className="menu-navBtn" onClick={() => alert("Está por vir")}>
                 <span className="menu-navLabel">
                   Certidão Negativa de Débitos / CNPJ
+                  {/* https://api.infosimples.com/consultas/docs/sefaz/rj/certidao-debitos */}
                 </span>
               </ul>
               <ul className="menu-navBtn" onClick={() => alert("Está por vir")}>
                 <span className="menu-navLabel">
                   Certidão Negativa de Débitos / Certificado
+                  {/* https://api.infosimples.com/consultas/docs/sefaz/rj/certidao-debitos-cert */}
                 </span>
               </ul>
               <ul className="menu-navBtn" onClick={() => alert("Está por vir")}>
                 <span className="menu-navLabel">Caixa Postal / DEC</span>
+                {/* https://api.infosimples.com/consultas/docs/sefaz/rj/dec/caixa-postal */}
               </ul>
               <ul className="menu-navBtn" onClick={() => alert("Está por vir")}>
                 <span className="menu-navLabel">Dívida Ativa</span>
+                {/* https://api.infosimples.com/consultas/docs/pge/rj/divida-ativa */}
               </ul>
             </>
           )}
@@ -212,11 +219,13 @@ export default function Menu() {
               <ul className="menu-navBtn" onClick={() => alert("Está por vir")}>
                 <span className="menu-navLabel">
                   Acompanhamento de Protocolo / REDESIM
+                  {/* https://api.infosimples.com/consultas/docs/receita-federal/redesim/acompa */}
                 </span>
               </ul>
               <ul className="menu-navBtn" onClick={() => alert("Está por vir")}>
                 <span className="menu-navLabel">
                   Regularidade do Empregador / FGTS
+                  {/* https://api.infosimples.com/consultas/docs/caixa/regularidade */}
                 </span>
               </ul>
             </>
@@ -253,6 +262,11 @@ export default function Menu() {
               </ul>
               <ul className="menu-navBtn" onClick={() => alert("Está por vir")}>
                 <span className="menu-navLabel">Classificador Automático</span>
+              </ul>
+              <ul className="menu-navBtn" onClick={() => alert("Está por vir")}>
+                <span className="menu-navLabel">
+                  Correção Automática do Balancete
+                </span>
               </ul>
             </>
           )}

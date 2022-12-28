@@ -5,6 +5,7 @@ import './App.css';
 import { Login } from './pages/Login';
 import Home from './pages/Home';
 import ConsultCnpj from './pages/ConsultCnpj';
+import SituaFiscal from './pages/SituaFiscal';
 import PgtoEcac from './pages/PagamentosEcac';
 import NotFound from './pages/NotFoundPage';
 import Conversor from './pages/Conversor';
@@ -18,6 +19,7 @@ function App() {
           <Route path='/' element={ <Login /> } />
           <Route path='/home' element={ <Home /> } />
           <Route path='/consult-cnpj' element={ <ConsultCnpj /> } />
+          <Route path='/situa-fiscal' element={ <SituaFiscal /> } />
           <Route path='/pgto-ecac' element={ <PgtoEcac /> } />
           <Route path='/conversor' element={ <Conversor /> } />
           <Route path='/classificador' element={ <Classificador /> } />

@@ -28,6 +28,7 @@ function Provider({ children }) {
   const [dataPgtoEcac, setDataPgtoEcac] = useState("");
   const [dataConsultCnpj, setDataConsultCnpj] = useState("");
   const [groupConsultCnpj, setGroupConsultCnpj] = useState(true);
+  const [dataSituaFiscal, setDataSituaFiscal] = useState("");
 
   const contextValue = {
     loginVar,
@@ -48,6 +49,8 @@ function Provider({ children }) {
     setDataConsultCnpj,
     groupConsultCnpj,
     setGroupConsultCnpj,
+    dataSituaFiscal,
+    setDataSituaFiscal,
   };
 
   return (

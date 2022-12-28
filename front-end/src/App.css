@@ -508,6 +508,168 @@ html, body, #root {
 }
 /*********** CONSULTA CNPJ PC ***********/
 
+/*********** SITUAÇÃO FISCAL PC ***********/
+.situaFiscal-containerMobile { display: none; }
+.situaFiscal-containerPc {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  /* overflow: auto; */
+}
+.situaFiscal-paramContainer {
+  display: flex;
+  flex-direction: column;
+  background-color: #f1f1f1;
+  width: 83vw;
+}
+.situaFiscal-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 83vw;
+  background-color: #fbfbfb;
+  padding: 0.5rem 0rem;
+}
+.situaFiscal-paramTitle {
+  font-size: 1.2rem;
+  color: #464646d7;
+  font-weight: 700;
+  /* text-transform: uppercase; */
+}
+.situaFiscal-paramGroupContainer {
+  display: flex;
+  flex-direction: column;
+  width: 80vw;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+.situaFiscal-paramGroupContainer * {
+  color: #464646d7;
+  margin-left: 0.2rem;
+}
+.situaFiscal-paramGroupContainer > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+.situaFiscal-paramGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: auto;
+  /* width: 10rem; */
+  margin: 0px;
+}
+.situaFiscal-paramLabel {
+  font-size: 0.9rem;
+  width: auto;
+  /* margin-right: 0.5rem; */
+}
+.situaFiscal-input {
+  text-align: center;
+  width: 97%;
+  color: #464646d7;
+  transition: all .15s linear;
+  border: 0.5px solid #e3e3e3;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  height: 1.45rem;
+  margin-left: 5px;
+  padding: 0px;
+}
+.situaFiscal-input:focus {
+  outline: 0;
+  box-shadow: 0 0 0 0.05rem rgba(112, 112, 112, 0.25);
+}
+.cnpj-input { width: 9rem; }
+.situaFiscal-paramGroupBtns {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: auto;
+  width: 50vw;
+}
+.situaFiscal-paramGroupBtns button {
+  margin-top: 0.5rem;
+  height: 1.6rem;
+  width: 6rem;
+  color: #fbfbfb;
+  background-color: #fb404b;
+  border: 1px solid #fb404b;
+  border-radius: 5px;
+  transition: all .15s linear;
+  box-shadow: 0 0.2rem 0.1rem 0.05rem rgba(112, 112, 112, 0.25);
+}
+.situaFiscal-paramGroupBtns button:first-child {
+  margin-right: 1rem;
+}
+.situaFiscal-paramGroupBtns button:hover {
+  background-color: #fa1825;
+  border: 1px solid #fa1825;
+}
+.situaFiscal-paramGroupBtns button:active { box-shadow: none; }
+.situaFiscal-dataContainer {
+  background-color: #f1f1f1;
+  display: flex;
+  padding: 2rem;
+}
+.situaFiscal-dataContent {
+  width: 100%;
+  height: 72vh;
+  background-color: #fbfbfb;
+  text-align: center;
+  padding: 0.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+}
+.situaFiscal-dataGroup {
+  display: flex;
+  flex-direction: row;
+  width: fit-content;
+  align-items: center;
+  margin: 0.3rem 0rem;
+}
+.situaFiscal-dataGroup > * {
+  font-size: 0.9rem;
+  color: #323232d8;
+}
+.situaFiscal-dataGroup > span { font-weight: 700; }
+.situaFiscal-dataGroup > div {
+  background-color: #f1f1f1;
+  padding: 0.2rem;
+  margin-left: 0.5rem;
+  border: 0.5px inset #e3e3e3;
+}
+.situaFiscal-dataContentSeparator {
+  display: flex;
+  margin-top: 1rem;
+  margin-bottom: 0.3rem;
+  font-size: 1.2rem;
+  color: #323232;
+  font-weight: 700;
+}
+.situaFiscal-atvSec, .situaFiscal-socios {
+  flex-direction: column;
+  align-items: flex-start;
+}
+.situaFiscal-atvSec > div, .situaFiscal-socios > div {
+  margin: 0px;
+}
+.situaFiscal-socioGroup { padding: 0rem 0.5rem; }
+.situaFiscal-socioGroup > span { font-weight: 700; }
+.situaFiscal-atvSec > span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.7rem;
+  cursor: pointer;
+  border: 0.5px outset #e3e3e3;
+}
+/*********** SITUAÇÃO FISCAL PC ***********/
+
 
 
 
@@ -820,4 +982,97 @@ html, body, #root {
     margin: 0rem auto;
   }
   /*********** CONSULTA CNPJ MOBILE ***********/
+
+  /*********** SITUAÇÃO FISCAL MOBILE ***********/
+  .situaFiscal-containerPc { display: none; }
+  .situaFiscal-containerMobile {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 90vh;
+    margin-top: 0rem;
+    align-items: center;
+  }
+  .situaFiscal-paramContainer {
+    width: 94vw;
+    margin: 0px;
+    margin-top: 13vh;
+    /* position: absolute; */
+    /* margin-right: 0.5rem; */
+  }
+  .situaFiscal-header {
+    width: 100%;
+    padding: 0px;
+    padding-top: 0.6rem;
+  }
+  .situaFiscal-paramTitle {
+    font-size: 1rem;
+    /* text-transform: uppercase; */
+  }
+  .situaFiscal-paramGroupContainer {
+    display: flex;
+    flex-direction: column;
+    width: 95vw;
+    padding: 0rem 0.6rem;
+  }
+  .situaFiscal-paramGroupContainer:nth-child(1) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .situaFiscal-paramGroup {
+    height: auto;
+    flex-direction: column;
+    margin-top: 0px;
+  }
+  .situaFiscal-paramLabel {
+    height: 1.3rem;
+    font-size: 1rem;
+    width: auto;
+    margin: 0px;
+  }
+  .situaFiscal-input {
+    height: 1.5rem;
+    font-size: 1rem;
+    width: 50vw;
+    margin: 0px;
+    margin-bottom: 0.8rem;
+    padding: 0px;
+    border-radius: 5px;
+  }
+  .situaFiscal-paramGroupBtns {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+  .situaFiscal-paramGroupBtns button {
+    width: 25vw;
+    font-size: 1rem;
+    height: 1.8rem;
+    border-radius: 5px;
+  }
+  .situaFiscal-dataContainer {
+    padding: 1rem 0rem;
+    /* overflow: none; */
+  }
+  .situaFiscal-dataContent {
+    overflow: visible;
+    height: auto;
+  }
+  .situaFiscal-dataGroup * {
+    font-size: 0.7rem;
+  }
+  .situaFiscal-dataGroup:nth-child(9) {
+    margin-left: 3.4rem;
+  }
+  .situaFiscal-dataContentSeparator {
+    font-size: 1rem;
+  }
+  .situaFiscal-atvSec { width: 100%; align-items: center; }
+  .situaFiscal-atvSec > span {
+    /* width: 100%; */
+    margin: 0rem auto;
+  }
+  /*********** SITUAÇÃO FISCAL MOBILE ***********/
 }
