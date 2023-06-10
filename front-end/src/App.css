@@ -1,3 +1,7 @@
+* {
+  transition: all .15s linear;
+}
+
 html, body, #root {
   width: 100vw;
   height: 100vh;
@@ -670,6 +674,270 @@ html, body, #root {
 }
 /*********** SITUAÇÃO FISCAL PC ***********/
 
+/*********** CONVERSOR CLASSIFICADOR PC ***********/
+.convClass-containerMobile { display: none; }
+.convClass-containerPc {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+}
+.convClass-mainContainer {
+  display: flex;
+  flex-direction: column;
+  background-color: #f1f1f1;
+  width: 83vw;
+  height: 100vh;
+  overflow-y: auto;
+}
+.convClass-fileContainer {
+  padding: 0rem 2rem;
+  width: 77vw;
+}
+.convClass-fileContainer > * {
+  color: #464646d7;
+}
+.convClass-fileContainer > h3 {
+  margin-bottom: 0.4rem;
+}
+.convClass-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 83vw;
+  background-color: #fbfbfb;
+  padding: 0.5rem 0rem;
+}
+.convClass-formTitle {
+  font-size: 1.2rem;
+  color: #464646d7;
+  font-weight: 700;
+  /* text-transform: uppercase; */
+}
+.convClass-inputFiles, .convClass-filesGroup > input {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.5rem;
+  height: 1.6rem;
+  text-align: center;
+  width: 15rem;
+  color: #fbfbfb;
+  background-color: rgb(158, 43, 43);
+  border: 1px solid rgb(158, 43, 43);
+  border-radius: 5px;
+  transition: all .15s linear;
+  box-shadow: 0 0.2rem 0.1rem 0.05rem rgba(112, 112, 112, 0.25);
+  cursor: pointer;
+}
+.convClass-inputFiles:hover {
+  background-color: #fa1825;
+  border: 1px solid #fa1825;
+}
+.convClass-inputFiles:active { box-shadow: none; }
+.convClass-filesGroup {
+  display: flex;
+  margin-top: 0.5rem;
+  align-items: center;
+  /* justify-self: center; */
+  max-width: 30rem;
+  justify-content: center space-between;
+}
+.convClass-filesGroup > div {
+  background-color: #f1f1f1;
+  color: #464646d7;
+  padding: 0.5rem;
+  border-radius: 5px;
+}
+.convClass-filesGroup > input {
+  width: 6rem;
+  margin-left: 0.5rem;
+}
+.convClass-filesGroup > input:hover {
+  background-color: #fa1825;
+  border: 1px solid #fa1825;
+}
+.convClass-fileNames {
+  display: flex;
+  flex-direction: column;
+}
+.convClass-filesMerge {
+  display: flex;
+  margin-top: 0.4rem;
+  color: #464646d7;
+}
+.convClass-fileName {
+  margin: 0.8rem;
+  font-size: 1.3rem;
+}
+.convClass-fileHeader {
+  display: flex;
+  align-items: baseline;
+}
+.convClass-fileHeader > div:nth-child(2) {
+  margin-left: 1rem;
+  display: flex;
+}
+.convClass-inputSaldoI, .convClass-fileName > input {
+  margin-left: 0.5rem;
+  width: 6rem;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: none;
+  border: 1px solid #e3e3e3;
+  font-size: .78rem;
+  color: #565656;
+  padding: 0.05rem 0.2rem;
+  height: auto;
+}
+.convClass-inputSaldoI:focus, .convClass-fileName > input:focus {
+  color: #495057;
+  outline: 0;
+  box-shadow: 0 0 0 0.05rem rgba(112, 112, 112, 0.25);
+}
+.convClass-fileName > input {
+  font-size: 1rem;
+  width: 16rem;
+}
+.convClass-tableHeader {
+  display: flex;
+  height: 1.5rem;
+  margin-bottom: 0rem;
+  margin-top: 0.3rem;
+  align-items: end;
+}
+.convClass-tableHeader > h5 {
+  height: 1rem;
+  margin: 0;
+  text-align: center;
+  cursor: pointer;
+}
+.convClass-tableHeader > h5:nth-child(1) { width: 5.4rem; }
+.convClass-tableHeader > h5:nth-child(2) { width: 35.4rem; }
+.convClass-tableHeader > h5:nth-child(3) { width: 6.4rem; }
+.convClass-tableHeader > h5:nth-child(4) { width: 7rem; }
+.convClass-tableRow {
+  display: flex;
+  flex-direction: row;
+}
+.tableData {
+  width: 5rem;
+  text-align: center;
+}
+.tableHist {
+  width: 35rem;
+  padding-left: 0.2rem;
+}
+.tableValor {
+  width: 6rem;
+  padding-left: 0.2rem;
+}
+.convClass-table {
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: none;
+  border: 0.5px solid #e3e3e3;
+  font-size: .78rem;
+  color: #565656;
+  height: 1.2rem;
+}
+.tableSoma {
+  width: 6rem;
+  padding-top: 0.17rem;
+  padding-left: 0.5rem;
+  border: none;
+  background-color: rgb(0,0,0,0);
+  font-size: 0.9rem;
+}
+.tableExcluir {
+  border: none;
+  margin: 0px;
+  padding: 0px;
+  cursor: pointer;
+  position: relative;
+  border-radius: 0px;
+  top: -2px;
+  width: 1rem;
+  height: 1rem;
+  margin-left: 4px;
+  background-color: #f1f1f1;
+}
+.tableExcluir + label {
+  margin-left: 4px;
+}
+.convClass-tableIcon1, .convClass-tableIcon2 {
+  width: 14px;
+  height: 3px;
+  position: relative;
+  background-color: #fb404b;
+  border: none;
+  margin: 0px;
+  padding: 0px;
+  transform: rotate(45deg);
+  top: 1px;
+  cursor: pointer;
+}
+.convClass-tableIcon2 {
+  transform: rotate(-45deg);
+  top: -2px;
+}
+.tableAdd {
+  border: none;
+  margin-left: 4px;
+  padding: 0px;
+  cursor: pointer;
+  position: relative;
+  border-radius: 0px;
+  top: -2px;
+  width: 1rem;
+  height: 1rem;
+  background-color: #f1f1f1;
+}
+.convClass-tableIcon3, .convClass-tableIcon4 {
+  width: 12px;
+  height: 3px;
+  position: relative;
+  background-color: #41eb2e;
+  border: none;
+  margin: 0px;
+  padding: 0px;
+  /* transform: rotate(45deg); */
+  top: 4px;
+  cursor: pointer;
+}
+.convClass-tableIcon4 {
+  transform: rotate(90deg);
+  top: 1px;
+  left: 0px;
+  /* width: 12px; */
+}
+.convClass-table.tableAdd > .convClass-tableIcon3 { top: 1px; }
+.convClass-table.tableAdd > .convClass-tableIcon4 { top: -1px; }
+.convClass-endButtonsContainer {
+  margin: 2rem;
+}
+.convClass-downloadAll, .convClass-classify {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.5rem;
+  height: 2rem;
+  font-size: 1.6rem;
+  text-align: center;
+  width: 15rem;
+  color: #fbfbfb;
+  background-color: rgb(158, 43, 43);
+  border: 1px solid rgb(158, 43, 43);
+  border-radius: 5px;
+  transition: all .15s linear;
+  box-shadow: 0 0.2rem 0.1rem 0.05rem rgba(112, 112, 112, 0.25);
+  cursor: pointer;
+}
+.convClass-downloadAll:hover, .convClass-classify:hover {
+  background-color: #fa1825;
+  border: 1px solid #fa1825;
+}
+.convClass-classify:active { box-shadow: none; }
+/*********** CONVERSOR CLASSIFICADOR PC ***********/
 
 
 

@@ -257,7 +257,7 @@ export default function Menu() {
           </ul>
           {groupCollapse.groupOp === false && (
             <>
-              <ul className="menu-navBtn" onClick={() => alert("Está por vir")}>
+              <ul className="menu-navBtn" onClick={() => navigate('/conversor')}>
                 <span className="menu-navLabel">Conversor OFX</span>
               </ul>
               <ul className="menu-navBtn" onClick={() => alert("Está por vir")}>

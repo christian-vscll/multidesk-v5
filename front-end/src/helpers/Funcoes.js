@@ -103,11 +103,11 @@ const transformOfxXls = (file) => {
         else if(linha.includes('MEMO')) historico = String(getHist(codBanco, linha));
       }
       else if(tranBank === false) {
-        console.log(`--- Linha ${contadorLinha} ---`);
-        console.log(`Data: ${data}`);
-        console.log(`Valor: ${valor}`);
-        console.log(`Historico: ${historico}`);
-        console.log('');
+        // console.log(`--- Linha ${contadorLinha} ---`);
+        // console.log(`Data: ${data}`);
+        // console.log(`Valor: ${valor}`);
+        // console.log(`Historico: ${historico}`);
+        // console.log('');
         
         const transaçao = [data, historico, valor];//Declara cabeçalho
         arquivo.push(transaçao);//Adiciona ao início do arquivo

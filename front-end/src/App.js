@@ -9,7 +9,7 @@ import SituaFiscal from './pages/SituaFiscal';
 import PgtoEcac from './pages/PagamentosEcac';
 import NotFound from './pages/NotFoundPage';
 import Conversor from './pages/Conversor';
-import Classificador from './pages/Classificador';
+import CDL from './pages/CDL';
 
 function App() {
   return (
@@ -21,8 +21,8 @@ function App() {
           <Route path='/consult-cnpj' element={ <ConsultCnpj /> } />
           <Route path='/situa-fiscal' element={ <SituaFiscal /> } />
           <Route path='/pgto-ecac' element={ <PgtoEcac /> } />
-          <Route path='/conversor' element={ <Conversor /> } />
-          <Route path='/classificador' element={ <Classificador /> } />
+          <Route path='/conv-class' element={ <Conversor /> } />
+          <Route path='/cdl' element={ <CDL /> } />
           <Route path='*' element={ <NotFound /> } />
         </Routes>
       </Provider>

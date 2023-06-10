@@ -175,9 +175,9 @@ export default function ConsultCnpj() {
                 id="formCnpj"
                 required
                 value={searchParams.cnpj}
-                onChange={(e) =>
-                  setSearchParams({ ...searchParams, cnpj: e.target.value })
-                }
+                onChange={(e) => {
+                  setSearchParams({ ...searchParams, cnpj: e.target.value });
+                }}
               />
             </div>
           </div>
@@ -190,7 +190,7 @@ export default function ConsultCnpj() {
             >
               Limpar
             </button>
-            <button type="submit" autoFocus={true}>
+            <button type="submit">
               Enviar
             </button>
           </div>

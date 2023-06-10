@@ -4,9 +4,8 @@ import AppContext from "./AppContext";
 function Provider({ children }) {
   const [loginVar, setLoginVar] = useState({ user: "", pasw: "" });
   const [actualConvertedFiles, setActualConvertedFiles] = useState([]);
-  const [convertedFiles, setConvertedFiles] = useState([]);
+  // const [convertedFiles, setConvertedFiles] = useState([]);
   const [conversorForm, setConversorForm] = useState({
-    type: "ofx-xls",
     files: null,
     separado: "true",
   });
@@ -35,8 +34,8 @@ function Provider({ children }) {
     setLoginVar,
     actualConvertedFiles,
     setActualConvertedFiles,
-    convertedFiles,
-    setConvertedFiles,
+    // convertedFiles,
+    // setConvertedFiles,
     conversorForm,
     setConversorForm,
     groupCollapse,
