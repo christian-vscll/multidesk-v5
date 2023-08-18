@@ -80,3 +80,39 @@ app.post('/consulta-cnpj', (_req, res) => {
     return res.send(response)
   });
 })
+
+app.post('/situa-fiscal', (req, res) => {
+  const { certificado, senha, cnpj } = req.body
+  const args = {
+    pkcs12_cert: AES256.encrypt(certificado, "KM2wFAJVip01kGgCYNlwOsAsy97iQo_1dsQSFD14"),
+    pkcs12_pass: AES256.encrypt(senha, "KM2wFAJVip01kGgCYNlwOsAsy97iQo_1dsQSFD14"),
+    perfil_procurador_cnpj: cnpj,
+    token: "wnjho-hliXdbamLxh2DxUWoKhQHF5M6EFbxx2d3E",
+    timeout: 300
+  };
+  
+  const options = {
+    method: 'POST',
+    url: 'https://api.infosimples.com/api/v2/consultas/ecac/situacao-fiscal',
+    form: args
+  };
+  
+  console.log('Iniciando request');
+  request(options, function (error, _, body) {
+    if (error) {
+      console.log('Requisição concluída com erros');
+      return res.status(400).send(error)
+    }
+    const response = JSON.parse(body)
+
+    if (response.code > 200) {
+      console.log('Requisição concluída com erros', response);
+      return res.status(response.code).send(response)
+    }
+  
+    // parseResponse(response);
+    console.log('Requisição concluída com sucesso');
+    console.log(response);
+    return res.send(response)
+  });
+})
