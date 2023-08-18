@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import AppContext from "./AppContext";
+// Import the functions you need from the SDKs you need
 
 function Provider({ children }) {
   const [loginVar, setLoginVar] = useState({ user: "", pasw: "" });
@@ -29,6 +30,8 @@ function Provider({ children }) {
   const [groupConsultCnpj, setGroupConsultCnpj] = useState(true);
   const [dataSituaFiscal, setDataSituaFiscal] = useState("");
 
+  // const database = getDatabase(app);
+
   const contextValue = {
     loginVar,
     setLoginVar,
@@ -50,6 +53,7 @@ function Provider({ children }) {
     setGroupConsultCnpj,
     dataSituaFiscal,
     setDataSituaFiscal,
+    // database,
   };
 
   return (

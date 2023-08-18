@@ -13,6 +13,59 @@ html, body, #root {
   background-color: #f1f1f1;
 }
 
+.arrows {
+  position: absolute;
+  right: 1.5rem;
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  width: 4rem;
+  height: 96vh;
+  justify-content: space-between;
+}
+.arrowCima, .arrowBaixo { cursor: pointer; border: none; border-radius: 50%; }
+.arrowBaixo { transform: rotate(180deg); }
+.custom-loader {
+  --R:15px;
+  --g1:#ca3b3a 96%, #0000;
+  --g2:#E4E4ED 96%, #0000;
+  width: calc(2*var(--R));
+  height:calc(2*var(--R));
+  border-radius:50%;
+  display: grid;
+  -webkit-mask:linear-gradient(#000 0 0);
+  animation: s10 2s infinite linear;
+}
+.custom-loader::before,
+.custom-loader::after{
+  content:"";
+  grid-area: 1/1;
+  width:50%;
+  background:
+    radial-gradient(farthest-side,var(--g1)) calc(var(--R) + 0.866*var(--R) - var(--R)) calc(var(--R) - 0.5*var(--R)   - var(--R)),
+    radial-gradient(farthest-side,var(--g1)) calc(var(--R) + 0.866*var(--R) - var(--R)) calc(var(--R) - 0.5*var(--R)   - var(--R)),
+    radial-gradient(farthest-side,var(--g2)) calc(var(--R) + 0.5*var(--R)   - var(--R)) calc(var(--R) - 0.866*var(--R) - var(--R)),
+    radial-gradient(farthest-side,var(--g1)) 0 calc(-1*var(--R)),
+    radial-gradient(farthest-side,var(--g2)) calc(var(--R) - 0.5*var(--R)   - var(--R)) calc(var(--R) - 0.866*var(--R) - var(--R)),
+    radial-gradient(farthest-side,var(--g1)) calc(var(--R) - 0.866*var(--R) - var(--R)) calc(var(--R) - 0.5*var(--R)   - var(--R)),
+    radial-gradient(farthest-side,var(--g2)) calc(-1*var(--R))  0,
+    radial-gradient(farthest-side,var(--g1)) calc(var(--R) - 0.866*var(--R) - var(--R)) calc(var(--R) + 0.5*var(--R)   - var(--R));
+   background-size:calc(2*var(--R)) calc(2*var(--R));
+   background-repeat:no-repeat;
+}
+.custom-loader::after { transform:rotate(180deg); transform-origin:right; }
+@keyframes s10 { 100% {transform: rotate(-1turn)} }
+.custom-loader.conv-class, .custom-loader.consult-cnpj {
+  position: absolute;
+  top: 2.5rem;
+  right: 18rem;
+}
+.custom-loader.pgto-ecac, .custom-loader.situa-fiscal {
+  position: absolute;
+  top: 5.2rem;
+  right: 21rem;
+}
+
 /*********** LOGIN PC ***********/
 .login-loginContainer {
   width: 400px;
@@ -674,8 +727,7 @@ html, body, #root {
 }
 /*********** SITUAÇÃO FISCAL PC ***********/
 
-/*********** CONVERSOR CLASSIFICADOR PC ***********/
-.convClass-containerMobile { display: none; }
+/*********** CONVERSOR CLASSIFICADOR ***********/
 .convClass-containerPc {
   display: flex;
   width: 100vw;
@@ -855,7 +907,7 @@ html, body, #root {
   cursor: pointer;
   position: relative;
   border-radius: 0px;
-  top: -2px;
+  top: 2px;
   width: 1rem;
   height: 1rem;
   margin-left: 4px;
@@ -887,7 +939,7 @@ html, body, #root {
   cursor: pointer;
   position: relative;
   border-radius: 0px;
-  top: -2px;
+  top: 2px;
   width: 1rem;
   height: 1rem;
   background-color: #f1f1f1;
@@ -914,6 +966,14 @@ html, body, #root {
 .convClass-table.tableAdd > .convClass-tableIcon4 { top: -1px; }
 .convClass-endButtonsContainer {
   margin: 2rem;
+  min-height: 280px;
+}
+.convClass-divSaldo {
+  display: flex;
+  flex-direction: column;
+}
+.convClass-divSaldo > label:nth-child(2) > input {
+  width: 2rem;
 }
 .convClass-downloadAll, .convClass-classify {
   display: flex;
@@ -937,7 +997,196 @@ html, body, #root {
   border: 1px solid #fa1825;
 }
 .convClass-classify:active { box-shadow: none; }
-/*********** CONVERSOR CLASSIFICADOR PC ***********/
+.convClass-tabelaClassificadoContainer { margin: 1rem auto; }
+.convClass-tabelaClassificadoContainer * { color: #464646d7; }
+.convClass-classificadoHeader { display: flex; align-items: center; }
+.convClass-classificadoHeader > span { cursor: pointer; }
+.convClass-classificadoHeader > span:nth-child(1) { width: 5.35rem; text-align: center; }
+.convClass-classificadoHeader > span:nth-child(2) { width: 24.9rem; padding-left: 0.5rem; }
+.convClass-classificadoHeader > span:nth-child(3) { width: 5.45rem; text-align: center; }
+.convClass-classificadoHeader > span:nth-child(4) { width: 2.9rem; text-align: center; }
+.convClass-classificadoHeader > span:nth-child(5) { width: 2.9rem; text-align: center; }
+.convClass-classificadoLinha > input:nth-child(1) { width: 5rem; text-align: center; }
+.convClass-classificadoLinha > input:nth-child(2) { width: 25rem; }
+.convClass-classificadoLinha > input:nth-child(3) { width: 5rem; }
+.convClass-classificadoLinha > input:nth-child(4) { width: 2.5rem; text-align: center; }
+.convClass-classificadoLinha > input:nth-child(5) { width: 2.5rem; text-align: center; }
+.convClass-classificadoLinha { display: flex;}
+.convClass-classificadoLinha > input {
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: none;
+  border: 0.5px solid #e3e3e3;
+  font-size: .78rem;
+  height: 1.2rem;
+}
+.convClass-subDivBtns {
+  display: flex;
+  /* position: relative; */
+  margin-left: 0.5rem;
+}
+.convClass-subDivBtns > button { top: 4px; }
+.convClass-selectsContainer {
+  display: flex;
+  flex-direction: column;
+  margin: 1.5rem 0rem 3rem 0.6rem;
+  font-size: 1.3rem;}
+.convClass-selectsContainer > label {
+  display: flex;
+  margin-bottom: 0.5rem;
+  align-items: center;
+  color: #464646d7;
+}
+.convClass-selects {
+  margin-left: 0.5rem;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: none;
+  border: 0.5px solid #e3e3e3;
+  font-size: 1rem;
+  height: 1.5rem;
+  padding: 0.2rem 0.3rem;
+  width: auto;
+  color: #464646d7;
+}
+.convClass-confirm {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* margin: -.5rem auto 1rem auto; */
+  height: 1.6rem;
+  font-size: 1rem;
+  text-align: center;
+  width: 8rem;
+  color: #fbfbfb;
+  background-color: rgb(158, 43, 43);
+  border: 1px solid rgb(158, 43, 43);
+  border-radius: 5px;
+  box-shadow: 0 0.2rem 0.1rem 0.05rem rgba(112, 112, 112, 0.25);
+  cursor: pointer;
+}
+.convClass-confirm:hover {
+  background-color: #fa1825;
+  border: 1px solid #fa1825;
+}
+.convClass-confirm:active { box-shadow: none; }
+.endButtonsClassify { display: flex; flex-direction: column; align-items: center; }
+.downloadClassify { width: 20rem; }
+.cancelClassify { width: 10rem; font-size: 1.4rem; }
+/*********** CONVERSOR CLASSIFICADOR ***********/
+
+/*********** DATABASE CLASSIFICADOR ***********/
+.db-container {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+}
+.db-mainContainer {
+  display: flex;
+  flex-direction: column;
+  background-color: #f1f1f1;
+  width: 83vw;
+  height: 100vh;
+  overflow-y: auto;
+}
+.db-header {
+  background-color: #fbfbfb;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.db-title {
+  font-size: 1.2rem;
+  color: #464646d7;
+  font-weight: 700;
+  text-align: center;
+  margin: 1rem 0;
+}
+.db-confirm, .dbAddConfirm {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: -.5rem auto 1rem auto;
+  height: 1.6rem;
+  font-size: 1rem;
+  text-align: center;
+  width: 8rem;
+  color: #fbfbfb;
+  background-color: rgb(158, 43, 43);
+  border: 1px solid rgb(158, 43, 43);
+  border-radius: 5px;
+  box-shadow: 0 0.2rem 0.1rem 0.05rem rgba(112, 112, 112, 0.25);
+  cursor: pointer;
+}
+.db-confirm:hover, .dbAddConfirm:hover {
+  background-color: #fa1825;
+  border: 1px solid #fa1825;
+}
+.db-confirm:active, .dbAddConfirm:active { box-shadow: none; }
+.db-content {
+  display: flex;
+  flex-direction: column;
+}
+.db-divEscritorio, .db-divEmpresa, .db-divBanco, .db-divTabela {
+  margin: 1rem;
+  color: #464646d7;
+}
+.db-divBanco { margin-left: 3rem; }
+.db-subDivHeader { display: flex; }
+.db-subDivBtns {
+  position: relative;
+  top: -5px;
+  margin-left: 0.7rem;
+}
+.dbAddContainer {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+  margin-top: 0px;
+}
+.dbAddContainer > div {
+  display: flex;
+}
+.dbAddLabel {
+  display: flex;
+  margin-bottom: 0.3rem;
+}
+.dbAddLabel > input { margin-left: 0.5rem; }
+.dbAddConfirm {
+  margin: 1rem 0px;
+  margin-right: 0.5rem;
+}
+.db-divTabela {
+  display: flex;
+  flex-direction: column;
+}
+.db-headerTabela {
+  display: flex;
+}
+.db-headerTabela > span:nth-child(1), .db-linhaTabela > .fieldTableDb:nth-child(1) {width: 20rem;}
+.db-headerTabela > span:nth-child(2), .db-linhaTabela > .fieldTableDb:nth-child(2) { text-align: center; width: 3rem; }
+.db-headerTabela > span:nth-child(3), .db-linhaTabela > .fieldTableDb:nth-child(3) { text-align: center; width: 4rem; }
+.db-headerTabela > span {
+  margin: 0 3.2px;
+}
+.db-linhaTabela, .db-linhaTabela > div { display: flex; }
+.db-linhaTabela > .fieldTableDb {
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: none;
+  border: 0.5px solid #e3e3e3;
+  font-size: .78rem;
+  height: 1.2rem;
+  color: #464646d7;
+}
+.convClass-table.tableExcluir.conv-class-file-name { top: -2px; }
+.convClass-table.tableExcluir.conv-class-table { top: 3px; }
+.convClass-table.tableAdd.db { top: 1px; }
+.convClass-tableIcon1.db { top: 3px; }
+.convClass-tableIcon2.db { top: 0px; }
+.convClass-tableIcon3.db { top: 8px; }
+.convClass-tableIcon4.db { top: 6px; }
+/*********** DATABASE CLASSIFICADOR ***********/
 
 
 

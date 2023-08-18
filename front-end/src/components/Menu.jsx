@@ -257,15 +257,15 @@ export default function Menu() {
           </ul>
           {groupCollapse.groupOp === false && (
             <>
-              <ul className="menu-navBtn" onClick={() => navigate('/conversor')}>
-                <span className="menu-navLabel">Conversor OFX</span>
+              <ul className="menu-navBtn" onClick={() => navigate('/conv-class')}>
+                <span className="menu-navLabel">Conversor e Classificador</span>
               </ul>
-              <ul className="menu-navBtn" onClick={() => alert("Está por vir")}>
-                <span className="menu-navLabel">Classificador Automático</span>
+              <ul className="menu-navBtn" onClick={() => navigate('/db-class')}>
+                <span className="menu-navLabel">Database do classificador</span>
               </ul>
               <ul className="menu-navBtn" onClick={() => alert("Está por vir")}>
                 <span className="menu-navLabel">
-                  Correção Automática do Balancete
+                  Puxa tudo da empresa
                 </span>
               </ul>
             </>

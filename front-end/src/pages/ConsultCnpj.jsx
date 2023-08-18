@@ -1,8 +1,9 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import AppContext from "../context/AppContext";
 import Menu from "../components/Menu";
-import { obj } from "../mockConsultaCNPJ";
 import "../App.css";
+import { getApiCnpj } from "../helpers/Reqs";
+
 
 export default function ConsultCnpj() {
   const {
@@ -15,9 +16,15 @@ export default function ConsultCnpj() {
     setGroupCollapse,
     groupCollapse,
   } = useContext(AppContext);
+  const [loading, setLoading] = useState(false)
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => setGroupCollapse({ ...groupCollapse, groupTitle: true }), []);
+
+  useEffect(() => {
+    if (loading) document.body.style.cursor = "wait"
+    else document.body.style.cursor = ""
+  }, [loading, dataConsultCnpj, ])
 
   const dataContent = () =>
     dataConsultCnpj !== undefined &&
@@ -159,9 +166,15 @@ export default function ConsultCnpj() {
         <form
           className="consultCnpj-paramGroupContainer"
           id="consultCnpjForm"
-          onSubmit={(e) => {
+          onSubmit={async (e) => {
             e.preventDefault();
-            setDataConsultCnpj(obj.data[0]);
+            setLoading(true)
+            const res = await getApiCnpj(searchParams.cnpj)
+            if (typeof res === 'object') {
+              console.log(res);
+              setDataConsultCnpj(res)
+            }
+            setLoading(false)
           }}
         >
           <div>
@@ -211,6 +224,7 @@ export default function ConsultCnpj() {
       <div className="consultCnpj-containerPc">
         <Menu />
         {headerContent()}
+        {loading && <div className="custom-loader consult-cnpj"/>}
       </div>
     </div>
   );

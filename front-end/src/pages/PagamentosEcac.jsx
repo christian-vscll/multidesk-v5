@@ -1,9 +1,10 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import AppContext from "../context/AppContext";
 import Menu from "../components/Menu";
-import { obj } from "../mockPagamentosEcac.js";
-import docIcon from "../icons/doc.png";
+// import docIcon from "../icons/doc.png";
+import { Buffer } from "buffer";
 import "../App.css";
+import { getApiPgtoEcac } from "../helpers/Reqs";
 
 export default function PgtoEcac() {
   const {
@@ -14,6 +15,7 @@ export default function PgtoEcac() {
     groupCollapse,
     setGroupCollapse,
   } = useContext(AppContext);
+  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
     setSearchParams({
@@ -32,18 +34,14 @@ export default function PgtoEcac() {
       <thead>
         <tr>
           <th>
-            Data
-            <br />
-            ref
+            Data ref
           </th>
           <th>
-            Data
-            <br />
-            pgto
+            Data pgto
           </th>
           <th>Código</th>
           <th>Valor</th>
-          <th>PDF</th>
+          {/* <th>PDF</th> */}
         </tr>
       </thead>
       {dataPgtoEcac !== undefined &&
@@ -55,7 +53,7 @@ export default function PgtoEcac() {
               <td>{row.arrecadacao}</td>
               <td>{row.codigo_receita}</td>
               <td>{row.valor_total}</td>
-              <td>
+              {/* <td>
                 <a href={row.comprovante_url}>
                   <img
                     src={docIcon}
@@ -63,22 +61,44 @@ export default function PgtoEcac() {
                     className="pgtoEcac-dataTableIcon"
                   />
                 </a>
-              </td>
+              </td> */}
             </tr>
           </tbody>
         ))}
     </table>
   );
 
+  const toBase64 = file => new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsArrayBuffer(file);
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = reject;
+  });
+  
   const dataContent = () => (
     <div className="pgtoEcac-paramContainer">
       <header className="pgtoEcac-header">
         <span className="pgtoEcac-paramTitle">Parâmetros de consulta</span>
         <form
           className="pgtoEcac-paramGroupContainer"
-          onSubmit={(e) => {
+          onSubmit={async (e) => {
             e.preventDefault();
-            setDataPgtoEcac(obj.data[0].documentos);
+            setLoading(true)
+            const certificado = await toBase64(searchParams.certificado)
+            const obj = {
+              certificado: Buffer.from(certificado).toString('base64'),
+              senha: searchParams.senhaCertificado,
+              cnpj: searchParams.cnpj,
+              dataI: searchParams.dataInicial,
+              dataF: searchParams.dataFinal,
+            }
+
+            const res = await getApiPgtoEcac(obj)
+            if (typeof res === 'object') {
+              console.log(res);
+              setDataPgtoEcac(res.documentos)
+            }
+            setLoading(false)
           }}
         >
           <div>
@@ -212,6 +232,7 @@ export default function PgtoEcac() {
       <div className="pgtoEcac-containerPc">
         <Menu />
         {dataContent()}
+        {loading && <div className="custom-loader pgto-ecac"/>}
       </div>
     </div>
   );

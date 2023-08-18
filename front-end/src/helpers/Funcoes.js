@@ -75,9 +75,9 @@ const transformOfxXls = (file) => {
   const cabecalho = ['DATA', 'HISTORICO', 'VALOR'];//Declara cabeçalho
   arquivo.push(cabecalho);//Adiciona ao início do arquivo
   
-  let contadorLinha = 0;
+  // let contadorLinha = 0;
   for (const linha of file) {//Percorre o arquivo linha a linha
-    contadorLinha += 1;
+    // contadorLinha += 1;
     // console.log(contadorLinha, linha);
 
     //Código do banco
