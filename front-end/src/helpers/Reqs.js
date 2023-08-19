@@ -21,11 +21,7 @@ export const getApiPgtoEcac = async (obj) => {
 
   const response = await fetch(URL + '/pgto-ecac', {
     method: "POST",
-    headers: {
-      'Origin': 'http://localhost:3000',
-      'Access-Control-Allow-Origin': '*',
-      'Content-Type': 'application/json'
-    },
+    headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(obj)
   }).then(async res => {
     const aux = await res.json()
