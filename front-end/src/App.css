@@ -728,6 +728,7 @@ html, body, #root {
 /*********** SITUAÇÃO FISCAL PC ***********/
 
 /*********** CONVERSOR CLASSIFICADOR ***********/
+.convClass-containerMobile { display: none; }
 .convClass-containerPc {
   display: flex;
   width: 100vw;
@@ -1592,4 +1593,16 @@ html, body, #root {
     margin: 0rem auto;
   }
   /*********** SITUAÇÃO FISCAL MOBILE ***********/
+
+  /*********** CONVERSOR CLASSIFICADOR MOBILE ***********/
+  .convClass-containerPc { display: none; }
+  .convClass-containerMobile {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 90vh;
+    margin-top: 0rem;
+    align-items: center;
+  }
+  /*********** CONVERSOR CLASSIFICADOR MOBILE ***********/
 }

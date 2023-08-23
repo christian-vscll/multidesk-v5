@@ -18,7 +18,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "cd.. && git pull && git add . && git commit -m 'Att' && git push && cd front-end && react-scripts build && firebase deploy",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
