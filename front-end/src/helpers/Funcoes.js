@@ -34,6 +34,8 @@ const getBanco = (linha) => {
   else if(linha.includes('0341')) toReturn = '0341';
   else if(linha.includes('033')) toReturn = '033';
   else if(linha.includes('0237')) toReturn = '0237';
+  else if(linha.includes('0403')) toReturn = '0403';
+  else if(linha.includes('655')) toReturn = '655';
   else toReturn = linha.substring(8,linha.length-9);
   return toReturn;
 };
@@ -42,15 +44,18 @@ const getData = (codBanco, linha) => {
   let toReturn;
   if(codBanco === '001') toReturn = `${linha.substring(19,21)}/${linha.substring(17,19)}/${linha.substring(13,17)}`;
   else if(codBanco === '033') toReturn = `${linha.substring(40,42)}/${linha.substring(38,40)}/${linha.substring(34,38)}`;
+  else if(codBanco === '0403') toReturn = `${linha.substring(16,18)}/${linha.substring(14,16)}/${linha.substring(10,14)}`;
+  else if(codBanco === '655') toReturn = `${linha.substring(36,38)}/${linha.substring(34,36)}/${linha.substring(30,34)}`;
   else toReturn = `${linha.substring(16,18)}/${linha.substring(14,16)}/${linha.substring(10,14)}`;
   return toReturn;
 };
 
 const getValor = (codBanco, linha) => {
   let toReturn;
-  if(codBanco === '077' || codBanco === '0260' || codBanco === '756' || codBanco === '218') toReturn = linha.substring(8,linha.length-9);
+  if(codBanco === '077' || codBanco === '0260' || codBanco === '756' || codBanco === '218' || codBanco === '0403') toReturn = linha.substring(8,linha.length-9);
   else if(codBanco === '001') toReturn = linha.substring(11,linha.length-1);
   else if(codBanco === '033') toReturn = linha.substring(32,linha.length);
+  else if(codBanco === '655') toReturn = linha.substring(28,linha.length);
   else toReturn = linha.substring(8,linha.length);
   toReturn.includes(',') && (toReturn = toReturn.replace(',', '.'));
   // console.log(toReturn);
@@ -59,9 +64,10 @@ const getValor = (codBanco, linha) => {
 
 const getHist = (codBanco, linha) => {
   let toReturn;
-  if(codBanco === '077' || codBanco === '0260' || codBanco === '756' || codBanco === '218') toReturn = linha.substring(6,linha.length-7);
+  if(codBanco === '077' || codBanco === '0260' || codBanco === '756' || codBanco === '218' || codBanco === '0403') toReturn = linha.substring(6,linha.length-7);
   else if(codBanco === '001') toReturn = linha.substring(9,34);
   else if(codBanco === '033') toReturn = linha.substring(30,linha.length);
+  else if(codBanco === '655') toReturn = linha.substring(26,linha.length);
   else toReturn = linha.substring(6,linha.length);
   return toReturn;
 };

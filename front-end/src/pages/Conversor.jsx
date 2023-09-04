@@ -536,7 +536,7 @@ function Conversor() {
         </div>
       ) : //! Array de arquivos pra converter não contém nada?? ↓↓↓↓
       convertedFiles.length === 0 ? (
-        <form className="convClass-form" onSubmit={handleSubmit}>
+        <form className="convClass-form" onSubmit={handleSubmit} encType="multipart/form-data">
           <span className="convClass-formTitle">Conversor e Classificador</span>
           <label
             className="convClass-inputFiles"
